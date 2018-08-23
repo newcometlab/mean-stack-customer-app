@@ -27,8 +27,20 @@ app.post("/users", (req, res) => {
     user.username = req.body.username;
     user.password = req.body.password;
     user.email = req.body.email;
-    user.save();
-    res.send("User: "+ user +" successfully created");
+    if (req.body.username == null || req.body.username == ""
+        || req.body.password == null || req.body.password == ""
+        || req.body.email == null || req.body.email == "")
+    {
+        res.send("Validation Error: Please ensure that username, password and email have been provided")
+    } else {
+        user.save((error) => {
+            if (error) {
+                res.send("The system returned the following error: "+error);
+            } else {
+                res.send("User: "+ user +" successfully created");
+            }
+        });
+    }
 });
 
 app.listen(port, () => {
