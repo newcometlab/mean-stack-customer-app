@@ -12,6 +12,10 @@
                                "username": "adamski",
                                "password": "counto",
                                "email": "cuntomcjunto@gmail.com"
-                             }
+                              }
+    
+    Current app url: http://localhost:8080/home
+    
+    Custom styles for Bootstrap: https://getbootstrap.com/docs/4.1/examples/
     
     

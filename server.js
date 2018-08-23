@@ -3,13 +3,19 @@ var app = express();
 var port = process.env.PORT || 8080;
 var morgan = require("morgan");
 var mongoose = require("mongoose");
-var User = require("./app/models/user");
 var bodyParser = require("body-parser");
+var router = express.Router();
+var appRoutes = require("./app/routes/api")(router);
+var path = require("path");
 
+// middleware
 app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(__dirname + "/public"));
+app.use("/api", appRoutes);
 
+// db connection
 mongoose.connect("mongodb://localhost:27017/home", (error) => {
     if (error) {
         console.log("Not connected to database: "+error);
@@ -18,29 +24,9 @@ mongoose.connect("mongodb://localhost:27017/home", (error) => {
     }
 });
 
-app.get("/home", (req, res) => {
-    res.send("Hello from HOME");
-});
-
-app.post("/users", (req, res) => {
-    const user = new User();
-    user.username = req.body.username;
-    user.password = req.body.password;
-    user.email = req.body.email;
-    if (req.body.username == null || req.body.username == ""
-        || req.body.password == null || req.body.password == ""
-        || req.body.email == null || req.body.email == "")
-    {
-        res.send("Validation Error: Please ensure that username, password and email have been provided")
-    } else {
-        user.save((error) => {
-            if (error) {
-                res.send("The system returned the following error: "+error);
-            } else {
-                res.send("User: "+ user +" successfully created");
-            }
-        });
-    }
+// returning page to user
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname + "/public/app/views/index.html"))
 });
 
 app.listen(port, () => {
