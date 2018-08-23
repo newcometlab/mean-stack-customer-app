@@ -1,0 +1,29 @@
+{
+  "name": "mean-stack-customer-app",
+  "version": "1.0.0",
+  "description": "mean stack application for redblade",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oceloteater/mean-stack-customer-app.git"
+  },
+  "keywords": [
+    "mean",
+    "stack",
+    "redblade"
+  ],
+  "author": "Adam Carroll",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Oceloteater/mean-stack-customer-app/issues"
+  },
+  "homepage": "https://github.com/Oceloteater/mean-stack-customer-app#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "morgan": "^1.9.0"
+  }
+}
