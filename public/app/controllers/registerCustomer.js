@@ -1,7 +1,11 @@
-angular.module("userControllers", [])
+angular.module("registerCustomer", [])
 
-.controller("usersController", function() {
-    this.addCustomer = () => {
-        console.log("HIT CONTROLLER");
+.controller("registerCustomer", function($http) {
+
+    console.log("HIT CONTROLLER 1");
+    this.addCustomer = function(regData) {
+        console.log(this.regData);
+        $http.post("/api/users", this.regData);
+        console.log("POST COMPLETE");
     };
 });

@@ -4,20 +4,32 @@ module.exports = (router) => {
 
     // first POST request [http://localhost:8080/api/users]
     router.post("/users", (req, res) => {
+        console.log("REQUEST BODY: "+req.body);
         const user = new User();
-        user.username = req.body.username;
-        user.password = req.body.password;
+        user.idNumber = req.body.idNumber;
+        user.firstName = req.body.firstName;
+        user.lastName = req.body.lastName;
         user.email = req.body.email;
-        if (req.body.username == null || req.body.username == ""
-            || req.body.password == null || req.body.password == ""
-            || req.body.email == null || req.body.email == "")
+        user.phoneNumber = req.body.phoneNumber;
+
+        console.log(user);
+
+        if (req.body.idNumber == null || req.body.idNumber == ""
+            || req.body.firstName == null || req.body.firstName == ""
+            || req.body.lastName == null || req.body.lastName == ""
+            || req.body.email == null || req.body.email == ""
+            || req.body.phoneNumber == null || req.body.phoneNumber == "")
         {
-            res.send("Validation Error: Please ensure that username, password and email have been provided")
+            console.log("HIT IF statement");
+            res.send("Validation Error: Please ensure that all fields have been provided")
         } else {
+            console.log("HIT ELSE statement");
             user.save((error) => {
                 if (error) {
+                    console.log("HIT ERROR statement"+error);
                     res.send("The system returned the following error: "+error);
                 } else {
+                    console.log("HIT USER CREATED statement");
                     res.send("User: "+ user +" successfully created");
                 }
             });

@@ -12,8 +12,8 @@ angular.module("appRoutes", ["ngRoute"])
     })
     .when("/register", {
         templateUrl: "app/views/pages/users/register.html",
-        controller: "usersController",
-        controllerAS: "register"
+        controller: "registerCustomer",
+        controllerAs: "register"
     })
     .otherwise({ redirectTo: "/" });
 

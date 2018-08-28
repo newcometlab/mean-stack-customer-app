@@ -1,28 +1,28 @@
 <div class="page-header">
     <h1>Hello from REGISTER route</h1>
 </div>
-
+<div ng-app="userApp"></div>
 <!-- THIS IS MY FORM ENTRY FOR THE REDBLADE PROJECT -->
-<form ng-submit="register.addCustomer();">
+<form ng-submit="register.addCustomer(regData)">
     <!-- ID number -->
     <label>ID Number:</label>
-    <input class="form-control" type="text" name="idNumber" placeholder="Customer ID Number">
+    <input class="form-control" type="text" name="idNumber" placeholder="Customer ID Number" ng-model="register.regData.idNumber">
     <br>
     <!-- first name -->
     <label>First Name:</label>
-    <input class="form-control" type="text" name="firstName" placeholder="First Name">
+    <input class="form-control"  type="text" name="firstName" placeholder="First Name" ng-model="register.regData.firstName">
     <br>
     <!-- last name -->
     <label>Last Name:</label>
-    <input class="form-control" type="text" name="lastName" placeholder="Last Name">
+    <input class="form-control" type="text" name="lastName" placeholder="Last Name" ng-model="register.regData.lastName">
     <br>
     <!-- email -->
     <label>Email:</label>
-    <input class="form-control" type="text" name="email" placeholder="Email">
+    <input class="form-control" type="text" name="email" placeholder="Email" ng-model="register.regData.email">
     <br>
     <!-- phone -->
     <label>Phone:</label>
-    <input class="form-control" type="text" name="phoneNumber" placeholder="Phone Number">
+    <input class="form-control" type="text" name="phoneNumber" placeholder="Phone Number" ng-model="register.regData.phoneNumber">
     <br>
 
     <!-- NEEDS ANOTHER SOLUTION -->
@@ -31,6 +31,7 @@
 
     <!-- address 2 -->
 
+
     <!-- address 3 -->
-    <button class="btn btn-primary" type="submit">Submit</button>
+    <button class="btn btn-primary" type="submit">Register</button>
 </form>
