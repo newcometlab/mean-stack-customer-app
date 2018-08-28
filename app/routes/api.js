@@ -21,16 +21,17 @@ module.exports = (router) => {
             || req.body.phoneNumber == null || req.body.phoneNumber == "")
         {
             console.log("HIT IF statement");
-            res.send("Validation Error: Please ensure that all fields have been provided")
+            res.send("Validation Error: Please ensure that all fields have been provided");
+            res.json({ success: false, message: "Validation Error: Please ensure that all fields have been provided" })
         } else {
             console.log("HIT ELSE statement");
             user.save((error) => {
                 if (error) {
                     console.log("HIT ERROR statement"+error);
-                    res.send("The system returned the following error: "+error);
+                    res.json({ success: false, message: "The system returned the following error: "+error});
                 } else {
                     console.log("HIT USER CREATED statement");
-                    res.send("User: "+ user +" successfully created");
+                    res.json({ success: true, message: "User: "+ user +" successfully created" });
                 }
             });
         }

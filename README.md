@@ -9,10 +9,12 @@
         - you can use "MongoDB Compass" connect: localhost:27017
         - you need to refresh your Compass to see new entries
         - use REST client w/ {
-                               "username": "adamski",
-                               "password": "counto",
-                               "email": "cuntomcjunto@gmail.com"
-                              }
+                               "idNumber": "yetandfghdfgdfgothertest",
+                               "firstName": "dorijgsorg",
+                               "lastName": "osnef",
+                               "email": "dthdfhfghdf.com",
+                               "phoneNumber": "398543098534"
+                             }
     
     Current app url: http://localhost:8080/home
     
