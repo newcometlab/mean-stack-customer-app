@@ -2,6 +2,8 @@
     <h1>Hello from REGISTER route</h1>
 </div>
 
+
+
 <div ng-app="userApp"></div>
 <!-- THIS IS MY FORM ENTRY FOR THE REDBLADE PROJECT -->
 <form ng-submit="register.addCustomer(regData)">
@@ -27,23 +29,30 @@
     <br>
 
     <!-- ADDRESS NEEDS ANOTHER SOLUTION -->
-
     <!-- address 1 -->
 
     <!-- address 2 -->
 
     <!-- address 3 -->
+
     <button class="btn btn-primary" type="submit">Register</button>
 </form>
 
 <br>
 
-<div class="row show-hide-message">
-    <div class="alert alert-success">Success Message</div>
+<div class="jumbotron text-center" ng-show="register.loading">
+    <span class="glyphicon glyphicon-repeat spinner"></span>
+    <p>Loading...</p>
 </div>
 
 <br>
 
-<div class="row show-hide-message">
-    <div class="alert alert-danger">Error Message</div>
+<div class="row show-hide-message" ng-show="register.successMsg">
+    <div class="alert alert-success">{{ register.successMsg }}</div>
+</div>
+
+<br>
+
+<div class="row show-hide-message" ng-show="register.errorMsg">
+    <div class="alert alert-danger">{{ register.errorMsg }}</div>
 </div>
