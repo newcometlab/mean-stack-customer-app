@@ -23,4 +23,17 @@ angular.module("registerCustomer", ["userServices"])
             }
         })
     };
+
+    this.test = () => {
+        User.getUsers().then((data) => {
+            console.log(data);
+            console.log("FINISHED");
+            if (data.data.success) {
+                console.log("SUCCESS");
+                console.log(data);
+            } else {
+                console.log("FAILED"+data.data);
+            }
+        })
+    }
 });

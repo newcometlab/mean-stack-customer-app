@@ -8,7 +8,9 @@ angular.module("appRoutes", ["ngRoute"])
         templateUrl: "app/views/pages/home.html"
     })
     .when("/about", {
-        templateUrl: "app/views/pages/about.html"
+        templateUrl: "app/views/pages/about.html",
+        controller: "registerCustomer",
+        controllerAs: "register"
     })
     .when("/register", {
         templateUrl: "app/views/pages/users/register.html",
