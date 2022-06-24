@@ -7,6 +7,7 @@ var bodyParser = require("body-parser");
 var router = express.Router();
 var appRoutes = require("./app/routes/api")(router);
 var path = require("path");
+var User = require("./app/models/user");
 
 // middleware
 app.use(morgan("dev"));
@@ -22,6 +23,34 @@ mongoose.connect("mongodb://localhost:27017/home", (error) => {
     } else {
         console.log("Successfully connected to MongoDB");
     }
+});
+
+// app.get("/users", (req, res) => {
+//     User.findOne({ email: "sergser" }, (error, user) => {
+//         if (error) {
+//             res.send(error);
+//         } else {
+//             if (!user) {
+//                 res.send("NO USER EXISTS");
+//             } else {
+//                 res.send(user);
+//             }
+//         }
+//     })
+// });
+
+app.get("/users", (req, res) => {
+    User.find({}, (error, user) => {
+        if (error) {
+            res.send(error);
+        } else {
+            if (!user) {
+                res.send("NO USERS EXIST");
+            } else {
+                res.send(user);
+            }
+        }
+    })
 });
 
 // returning page to user

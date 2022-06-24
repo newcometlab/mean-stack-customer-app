@@ -37,6 +37,23 @@ module.exports = (router) => {
         }
     });
 
+    // second GET request [http://localhost:8080/api/users]
+    router.get("/users", (req, res) => {
+        User.find({}, (error, user) => {
+            if (error) {
+                console.log("ERROR IN API");
+                res.send(error);
+            } else {
+                if (!user) {
+                    res.send("NO USER EXISTS");
+                } else {
+                    console.log("FOUND USER SENDING DATA FROM API");
+                    res.send(user.data);
+                }
+            }
+        })
+    });
+
     return router;
 };
 
