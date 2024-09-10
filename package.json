@@ -25,8 +25,8 @@
   "dependencies": {
     "angular": "^1.7.3",
     "bcrypt-node": "^0.1.0",
-    "body-parser": "^1.18.3",
-    "express": "^4.16.3",
+    "body-parser": "^1.20.3",
+    "express": "^4.20.0",
     "glyphicons": "^0.2.0",
     "mongoose": "^5.2.9",
     "morgan": "^1.9.0"
